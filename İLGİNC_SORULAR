@@ -1,0 +1,133 @@
+# 1- Kullanıcının girdiği bir sayının faktöriyelini hesapla.
+#FAKTÖRİYEL HESAPLAMA
+while True:
+    try:
+        sayı = int(input("Bİr DOĞAL sayı giriniz: ")) 
+        if sayı < 0:
+           print("Negatif sayıların faktöriyeli olmaz!")
+           continue 
+        break
+    except ValueError:
+        print("0 ve üzeri bir tamsayı giriniz!")
+#I.YOL#FOR#
+sonuc = 1
+for i in range(1,sayı+1):
+    sonuc *= i
+print(f"{sayı} sayısının faktöriyeli: {sonuc}")
+#II.YOL#FONKSİYON#
+def faktöriyel(n):
+    sonuc = 1
+    for i in range(1,n+1):
+        sonuc *= i
+    return sonuc
+sonuc = faktöriyel(sayı)
+print(f"{sayı} ! = {sonuc}")
+#III.YOL#RECURSİVE#
+#Python'da recursion limiti vardır(varssayılan:1000)#
+def faktöriyel(n):
+    if n == 0 or n ==1:
+        return 1
+    return n * faktöriyel(n-1)
+sonuc = faktöriyel(n)
+print(sonuc)
+##################################################################
+
+# 2- 1 ile 100 arasındaki çift sayıları ekrana yazdır.
+#I.yol
+for i in range(1,101):
+    if i % 2 == 0:
+        print(i, end=" - ")
+#II.yol
+for i in range(2,101,2):
+    print(i, end=" - ")
+##################################################################
+
+# 3- Kullanıcının girdiği kelimenin sesli harflerini say.
+kelime = input("Bir kelime giriniz: ")
+sesli = "aeıioöuüAEIİOÖUÜ"
+for harf in kelime:
+    if harf in sesli:
+        print(harf, end="-")
+##################################################################
+
+# 4- Cümlede hangi harfin kaç kez geçtiğini yazdır.
+cumle = "Cümlede hangi harfin kaç kez geçtiğini yazdır."
+for harf in set(cumle):
+    if harf != " ":
+        print(f"{harf}: {cumle.count(harf)}")
+##################################################################
+
+# 5- Kullanıcıdan bir cümle al, kelimeleri alfabetik sırala.
+#I.yol
+cumle = input("Bir cümle yazınız: ").split()
+cumle.sort()
+#II.yol
+cumle = sorted(input("Bir cümle giriniz: ").split())
+##################################################################
+
+# 6- Adı tersten yazdır.
+adı = input("Adınız: ")
+print(adı[::-1])
+##################################################################
+
+# 7- İki kelimenin anagram olup olmadığını kontrol et.
+
+def anagram_mı(kelime1,kelime2):
+    kelime1 = kelime1.strip().lower()
+    kelime2 = kelime2.strip().lower()
+    if sorted(kelime1) == sorted(kelime2):
+        print(f"{kelime1} - {kelime2} anagramdır.")
+    else:
+        print(f"{kelime1} - {kelime2} anagram değildir.")
+    
+k1 = input("1. kelimeyi giriniz: ")
+k2 = input("2. kelimeyi giriniz: ")
+kontrol = anagram_mı(k1,k2)
+###################################################################
+
+# 8- Metindeki tüm rakamları sil.
+#I.yol
+metin = "Metindeki tüm rakamları sil.123 456 7 89 "
+rakam = "0123456789"
+for karakter in metin:
+    if karakter in rakam:
+        metin = metin.replace(karakter,"")
+#II.yol
+metin = "".join([c for c in metin if not c.isdigit()])
+###################################################################
+
+# 9- Sayının asal olup olmadığını bul.
+while True:
+    try:
+        sayı = int(input("Bir sayı giriniz:"))
+        break
+    except ValueError:
+        print("Tamsayı giriniz.")
+        
+def asal_mı(n):
+    if n < 2:
+        print("En Küçük asal sayı 2'dir.")
+    for i in range(2,int(sayı**0.5)+1):
+        if n % i == 0:
+            print(f"{n} sayısı asal değildir!")
+    else:
+        print(f"{sayı} ASALDIR!")
+        
+asal = asal_mı(sayı)
+print(asal)
+####################################################################
+
+# 10- Cümlenin palindrom olup olmadığını kontrol et.
+# "Palindrom", tersten okunduğunda da aynı olan kelime ya da cümlelere verilen addır.
+soz = input("bir cümle giriniz: ")
+from string import punctuation
+def palindrom_mu(cumle):
+    cumle = cumle.lower().replace(" ","")
+    for c in punctuation:
+        cumle = cumle.replace(c,"")
+    if cumle == cumle[::-1]:
+        print(f"{cumle} PALİNDROM'dur!")
+    else:
+        print(f"{cumle} palidrom DEĞİLDİR!")
+kontrol = palindrom_mu(soz)
+##################################################################
