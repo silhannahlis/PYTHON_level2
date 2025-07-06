@@ -1,0 +1,86 @@
+# 11- Girilen 5 sayıdan pozitif olanları listele.
+
+while True:
+    try:
+        sayı = input("5 tane sayı gir, virgülle ayrılmış olarak: ")
+        sayı = [int(i.strip()) for i in sayı.split(",")]
+        if len(sayı) != 5:
+            print("Lütfen tam olarak 5 tane sayı giriniz!")
+            continue
+        break
+    except ValueError:
+        print("Tamsayı giriniz.")
+pozitif = [i for i in sayı if i>0]
+print(pozitif)
+######################################################################
+
+# 12- Cümlede kaç farklı kelime olduğunu bul.
+cumle = ""
+cumle1 = set(cumle.split())
+print(len(cumle1))
+######################################################################
+
+# 13- Sayı listesinden tekrar edenleri kaldır.
+sayı = []
+sayı = list(set(sayı))
+######################################################################
+
+# 14- Kelimelerin ilk harflerinden kısaltma oluştur.
+cumle = input("Cümleyi gir: ").split()
+kısa_ad = "".join(kelime[0] for kelime in cumle).upper()
+print(kısa_ad)
+######################################################################
+ 
+# 15- Metni küçük harfe çevir, sadece ilk harfini büyük yap.
+metin = ""
+metin = metin.lower().capitalize()
+#######################################################################
+
+# 16- Cümlede kaç tane büyük harf olduğunu bul.
+#I.YOL
+cumle = ""
+sayac = 0
+for i in cumle:
+    if i.isupper():
+        sayac += 1
+print(sayac)
+#II:YOL
+bHarf = sum(1 for i in cumle if i.isupper())
+print(bHarf)
+########################################################################
+
+# 17- Kelimedeki çift sayıda geçen harfleri yazdır.
+#I.yol
+kelime = ""
+for i in set(kelime):
+    if kelime.count(i) % 2 == 0:
+        print(i)
+#II.yol
+cift_harf = [harf for harf in set(kelime) if kelime.count(harf) % 2 == 0]
+print(cift_harf)
+########################################################################
+       
+# 18- 1-100 arasında 3 ve 5'e bölünen sayıları yazdır.
+#I.yol
+for i in range(1,101):
+    if i % 3 == 0 and i % 5 == 0:
+        print(i, end= "-")
+#II.yol
+sayılar = [i for i in range(1,101) if i % 3 == 0 and i % 5 ==0]
+print(sayılar)
+########################################################################
+
+# 19- Sayı listesinin çarpımını hesapla.
+sayı_list = []
+carp = 1
+for i in sayı_list:
+    carp *= i
+print(carp)
+#########################################################################
+
+# 20- Sayıya kadar olan tek sayıların karelerini yazdır.
+sayı = int(input("SAYI GİR: "))
+for i in range(1,sayı+1):
+    if i % 2 == 1:
+        print(i*i, end="-")
+##########################################################################
