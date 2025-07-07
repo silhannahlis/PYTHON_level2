@@ -1,0 +1,90 @@
+# 21- Bir sayının kaç basamaklı olduğunu hesapla.
+#I.yol
+while True:
+    try:
+        sayı = int(input("Bir sayı giriniz: "))
+        break
+    except ValueError:
+        print("Tamsayı giriniz!")
+if sayı == 0:
+    print(f"{sayı} sayısı 1 basamaklıdır")
+else:
+    print(f"{sayı} sayısı {len(str(abs(sayı)))} basamaklıdır.")
+#II.yol
+while True:
+    try:
+        sayı = int(input("Bir sayı giriniz: "))
+        break
+    except ValueError:
+        print("Tamsayı giriniz!")
+sayı = abs(sayı)
+sayı1 = sayı
+basamak = 0
+if sayı == 0:
+    basamak = 1
+else:
+    while sayı1 > 0:
+        sayı1 = sayı1 // 10
+        basamak += 1
+print("{} sayısı {} basamaklıdır.".format(sayı,basamak))
+##################################################################
+        
+# 22- Sayının tam bölenlerini listele.
+sayı = int(input("sayı gir: "))
+tam_bolen = []
+for i in range(1,sayı+1):
+    if sayı % i == 0:
+        tam_bolen.append(i)
+print(f"{sayı} sayısının tam bölenleri: {tam_bolen}")
+##################################################################
+
+# 23- Kullanıcının adını her harfi ayrı satıra yazdır.
+ad = input("Adınız:")
+for i in ad:
+    print(i)
+###################################################################
+    
+# 24- Cümledeki kelimeleri sondan başa sırala.
+cumle = input("Bir cümle giriniz").split()
+print(cumle[::-1])
+###################################################################
+
+# 25- Cümlede kaç kelime olduğunu bul (split ile).
+cumle = input("Bir cümle giriniz").split()
+print(len(cumle))
+###################################################################
+
+# 26- Metindeki ilk boşluğun indeksini bul.
+metin = "Metindeki ilk boşluğun indeksini bul."
+print(metin.index(" "))
+###################################################################
+
+# 27- 5 sayı al, listeye ekle, toplamlarını yazdır.
+while True:
+    try:
+        sayı = input("5 tane sayı giriniz: ")
+        sayı = [int(i.strip()) for i in sayı.split()]
+        if len(sayı) != 5:
+            print("5 tane sayı gireceksiniz!")
+            continue
+        break
+    except ValueError:
+        print("Tamsayı giriniz!")
+print(sum(sayı))
+####################################################################
+
+# 28- Listedeki sayıların ortalamasını bul.
+liste = [23, 35, 12, 48, 97, 65]
+ortalama = sum(liste) / len(liste)
+####################################################################
+
+# 29- Listenin en küçük ikinci elemanını bul.
+liste = [10, 20, 5, 25, 30]
+liste.sort()
+e_kucuk = liste[1]
+####################################################################
+
+# 30- Listeyi büyükten küçüğe sırala.
+liste = [10, 5, 30, 20, 15] 
+liste.sort(reverse=True)
+####################################################################
