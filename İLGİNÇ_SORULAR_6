@@ -1,0 +1,57 @@
+# 52- Girilen cümlede en kısa kelimeyi bul.
+cumle = input("Bir cümle giriniz: ").split()
+en_kısa = min(cumle,key=len)
+print(en_kısa)
+#####################################################################
+
+# 53- Bir metni ortadan ikiye ayır ve ters sırayla birleştir.
+metin = "Bir metni ortadan ikiye ayır ve ters sırayla birleştir."
+orta = len(metin) // 2
+metin_1 = metin[:orta]
+metin_2 = metin[orta:]
+metin_1 = metin[::-1]
+metin_2 = metin[::-1]
+ters_metin = metin1 + metin_2
+print(ters_metin)
+#####################################################################
+
+# 54- Cümlede geçen her kelimeyi ters çevir.
+cumle = "Cümlede geçen her kelimeyi ters çevir.".split()
+ters_cumle = " ".join(i[::-1] for i in cumle)
+#####################################################################
+
+# 55- Listedeki pozitif sayıların toplamını yazdır.
+sayilar = [10, -5, 30, -15, 25, -8, 50, -100, 75, -2]
+pozitif_toplam = sum(i for i in sayilar if i > 0)
+print(pozitif_toplam)
+#####################################################################
+
+# 56- Listedeki negatif sayıların ortalamasını hesapla.
+sayilar = [10, -5, 30, -15, 25, -8, 50, -100, 75, -2]
+negatif_toplam = sum(i for i in sayilar if i < 0)
+print(negatif_toplam)
+#####################################################################
+
+# 57- Rastgele 10 sayıdan oluşan bir liste oluştur.
+from random import randint
+rastgele_sayilar = [randint(1,100) for i in range(10)]
+print(rastgele_sayilar)
+#####################################################################
+
+# 58- Bir kelimenin içinde geçen sesli harfleri sil.
+kelime = "Muvaffakiyetsizleştiricileştiriveremeyebileceklerimizdenmişsinizcesine"
+sesli = "aAeEıIiİoOöÖuUüÜ"
+sessiz_kelime = "".join(i for i in kelime if i not in sesli)
+#####################################################################
+
+# 59- Sayı listesinden yalnızca tekil olanları al.
+sayilar = [23, -56, 12, 89, -34, 0, 45, 76, -12, 58]
+tekil = [i for i in sayilar if i % 2 != 0]
+print(tekil)
+#####################################################################
+
+# 60- Metindeki tüm harfleri birer boşlukla ayır.
+metin = "Hayat, bize sürekli yeni başlangıçlar ve fırsatlar sunar. Her gün, yeni bir sayfa açmak gibidir. Geçmişin izlerini bir kenara bırakıp, geleceğe doğru bir adım atmak, her zaman cesaret ister. Ama unutma, her adım bir deneyimdir. İster mutlu, ister zorlayıcı olsun, her an hayatın bir parçasıdır."
+metin_bosluk = " ".join(i for i in metin)
+print(metin_bosluk)
+#####################################################################
