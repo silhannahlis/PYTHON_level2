@@ -1,0 +1,68 @@
+# 42- Kelimenin ilk ve son harfini yazdır.
+kelime = "harikayım"
+print(kelime[0],kelime[-1])
+####################################################################
+
+# 43- 3 kelime al, aralarına yıldız koyarak yazdır.
+print("Sırasıyla 3 tane kelime gireceksiniz!")
+kelimeler =[]
+sayac = 0
+while sayac < 3:
+    sayac += 1
+    kelime = input(f"{sayac}. kelime: ")
+    kelimeler.append(kelime)
+print("*".join(kelimeler)) 
+#####################################################################
+    
+# 44- Girilen cümlede "Python" kelimesi var mı kontrol et.
+cumle = input("Bir cumle yazınız:").lower()
+if "python" in cumle:
+    print("Evet python kelimesi var.")
+else:
+    print("Hayır python kelimesi yok.")
+######################################################################
+
+# 45- Cümlede geçen tüm rakamları listele.
+cumle = "45- Cümlede geçen tüm rakamları listele."
+rakam = [i for i in cumle if i.isdigit()]
+print(rakam)
+######################################################################
+
+# 46- Cümledeki kelime sayısını say.
+cumle = "Cümledeki kelime sayısını say.".split()
+print(len(cumle))
+######################################################################
+
+# 47- Sadece sesli harflerden oluşan bir liste oluştur.
+sesli = ["a", "A", "e", "E", "ı", "I", "i", "İ", "o", "O", "ö", "Ö", "u", "U", "ü", "Ü"]
+######################################################################
+
+# 48- Girilen sayının çift mi tek mi olduğunu yazdır.
+sayı = int(input("Bir sayı gir: "))
+if sayı % 2 == 0:
+    print("Çift sayı girdiniz")
+else:
+    print("Tek sayı girdiniz.")
+#######################################################################
+
+# 49- Kullanıcının yaşını al, kaç gün yaşadığını hesapla.
+yas = int(input("Yaşınız: "))
+gun = yas * 365
+artık_yıl = (yas // 4) - (yas // 100) + (yas // 400)
+toplam_gun = gun + artık_yıl
+print(f"{yas} yaşındaki bir kişi yaklaşık olarak {toplam_gun} gün yaşamıştır.")
+########################################################################
+
+# 50- Doğum yılını gir, kaç yaşında olduğunu hesapla.
+from datetime import datetime
+yil = datetime.today().year
+dogum_yili = int(input("Doğum yılınızı giriniz: "))
+yas = yil - dogum_yili
+print(f"{yas} yaşındasınız!")
+#########################################################################
+
+# 51- Girilen cümlede en uzun kelimeyi bul.
+cumle = input("Bir cümle giriniz: ").split()
+en_uzun = max(cumle, key=len)
+print(en_uzun)
+#########################################################################
