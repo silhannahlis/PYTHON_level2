@@ -1,0 +1,74 @@
+# 31- Liste içindeki tek sayıları yazdır.
+liste = [12, 25, 65, 87, 1, 9, 4, 8, 59, 54, 88, 22, 33]
+tek_sayı = [i for i in liste if i % 2 == 1]
+print(tek_sayı)
+##################################################################
+
+# 32- Liste içindeki çift sayıların sayısını bul.
+liste = [12, 25, 65, 87, 1, 9, 4, 8, 59, 54, 88, 22, 33]
+cift_sayı = [i for i in liste if i % 2 == 0]
+print(cift_sayı)
+##################################################################
+
+# 33- Sayıların karelerinden yeni liste oluştur.
+liste = [12, 25, 65, 87, 1, 9, 4, 8, 59, 54, 88, 22, 33]
+karesi = [i*i for i in liste]
+print(karesi)
+##################################################################
+
+# 34- Sayılardan kaç tanesi 10'dan büyük?
+liste = [12, 25, 65, 87, 1, 9, 4, 8, 59, 54, 88, 22, 33]
+buyuk_10 = len([i for i in liste if i > 10])
+print(buyuk_10)
+##################################################################
+
+# 35- Bir listeyi ters çevir (reverse).
+liste = [12, 25, 65, 87, 1, 9, 4, 8, 59, 54, 88, 22, 33]
+print(liste[::-1])
+##################################################################
+
+# 36- 1'den 50'ye kadar olan sayıların toplamını yazdır.
+print(sum(range(1,51)))
+##################################################################
+
+# 37- Kullanıcıdan 10 sayı al, en büyük ve en küçüğünü yaz.
+while True:
+    try:
+        sayı = input("10 tane sayı giriniz: ")
+        sayı = [int(i.strip()) for i in sayı.split()]
+        if len(sayı) != 10:
+            print("10 tane sayı gireceksiniz!")
+            continue
+        break
+    except ValueError:
+        print("Tamsayı giriniz!")
+print("{} en büyük sayı\n{} en küçük sayı".format(max(sayı), min(sayı)))
+###################################################################
+
+# 38- Girilen cümledeki noktalama işaretlerini kaldır
+#I.yol
+cumle = "Girilen cümledeki noktalama işaretlerini kaldır."
+from string import punctuation
+for i in cumle:
+    if i in punctuation:
+        cumle = cumle.replace(i,"")
+#II.yol
+cumle = "".join([i for i in cumle if i not in punctuation])
+####################################################################
+
+# 39- Cümledeki tüm kelimeleri büyük harfe çevir.
+cumle = "Cümledeki tüm kelimeleri büyük harfe çevir."
+print(cumle.upper())
+####################################################################
+
+# 40- Ad ve soyadı baş harfleri büyük şekilde yazdır.
+ad = "fehmi"
+soyad = "kırtmaz"
+print(ad.capitalize(), soyad.capitalize())
+####################################################################
+
+# 41- Ad ve soyadı küçük harfle yazdır.
+ad = "UlaŞ"
+soyad = "İlHAn"
+print(ad.lower(), soyad.lower())
+####################################################################
