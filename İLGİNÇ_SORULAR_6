@@ -9,9 +9,9 @@ metin = "Bir metni ortadan ikiye ayır ve ters sırayla birleştir."
 orta = len(metin) // 2
 metin_1 = metin[:orta]
 metin_2 = metin[orta:]
-metin_1 = metin[::-1]
-metin_2 = metin[::-1]
-ters_metin = metin1 + metin_2
+metin_1 = metin_1[::-1]
+metin_2 = metin_2[::-1]
+ters_metin = metin_1 + metin_2
 print(ters_metin)
 #####################################################################
 
@@ -29,7 +29,8 @@ print(pozitif_toplam)
 # 56- Listedeki negatif sayıların ortalamasını hesapla.
 sayilar = [10, -5, 30, -15, 25, -8, 50, -100, 75, -2]
 negatif_toplam = sum(i for i in sayilar if i < 0)
-print(negatif_toplam)
+negatif_sayi = [i for i in sayilar if i < 0]
+print(negatif_toplam / len(negatif_sayi))
 #####################################################################
 
 # 57- Rastgele 10 sayıdan oluşan bir liste oluştur.
@@ -52,6 +53,6 @@ print(tekil)
 
 # 60- Metindeki tüm harfleri birer boşlukla ayır.
 metin = "Hayat, bize sürekli yeni başlangıçlar ve fırsatlar sunar. Her gün, yeni bir sayfa açmak gibidir. Geçmişin izlerini bir kenara bırakıp, geleceğe doğru bir adım atmak, her zaman cesaret ister. Ama unutma, her adım bir deneyimdir. İster mutlu, ister zorlayıcı olsun, her an hayatın bir parçasıdır."
-metin_bosluk = " ".join(i for i in metin)
+metin_bosluk = " ".join(i for i in metin if i != " ")
 print(metin_bosluk)
 #####################################################################
