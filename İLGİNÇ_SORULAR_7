@@ -1,0 +1,177 @@
+
+# 61- "Cümlede hangi harf kaç kez geçmiş? (dict olarak yazdır)"
+#I.yol
+cumle = "Cümlede hangi harf kaç kez geçmiş? dict olarak yazdır"
+cumle_lower = cumle.lower()
+cumle_dict = {}
+for harf in set(cumle_lower):
+    if harf.isalpha():
+        cumle_dict[harf] = cumle_dict.get(harf,0) + 1
+print(cumle_dict)
+#II.yol
+cumle_dict = {harf: cumle_lower.count(harf) for harf in cumle_lower if harf.isalpha()}
+print(cumle_dict)
+############################################################################
+
+# 62- "a" harfini "*" ile değiştir.
+metin = "a harfini * ile değiştir."
+print(metin.replace("a", "*"))
+############################################################################
+
+# 63- Kullanıcının girdiği e-posta adresinden sadece kullanıcı adını al.
+e_posta = input("e-postanızı giriniz: ").strip()
+i_yeri = e_posta.index("@")
+kullanıcı_ad = e_posta[:i_yeri]
+print(kullanıcı_ad)
+############################################################################
+
+# 64- Listedeki sayıları 2 ile çarpıp yeni liste oluştur.
+sayi_listesi = [42, 17, 93, 8, 34, 6, 79, 48, 19, 67]
+yeni_liste = [i*2 for i in sayi_listesi]
+############################################################################
+
+# 65- Cümlede kaç noktalama işareti geçtiğini say.
+cumle ="Cümlede kaç noktalama işareti geçtiğini say."
+from string import punctuation
+isaretler = [i for i in cumle if i in punctuation]
+print(len(isaretler))
+############################################################################
+
+# 66- Girilen metni şifrele: her harfin ASCII değerini yaz.
+#I.yol
+metin = input("Şifrelenecek metni giriniz: ")
+ascii_metin = []
+for i in metin:
+    ascii_metin.append(str(ord(i)))
+print(" ".join(ascii_metin))
+#II.yol
+ascii_metin = [str(ord(i)) for i in metin]
+print(" ".join(ascii_metin))
+############################################################################
+
+# 67- Girilen cümledeki kelimeleri alfabetik sıralayıp tekrar birleştir.
+cumle = input("Cümle giriniz").split()
+print(" ".join(sorted(cumle)))
+############################################################################
+
+# 68- Cümlede geçen en sık kelimeyi bul.
+cumle = "Cümlede geçen en sık kelimeyi bul. Sık bul. Sık sık geç. Sık.".lower().split()
+for i in range(len(cumle)):
+    if [i][-1] in ".,!?":
+        cumle[i] = cumle[i][-1]
+#cumle = [kelime.strip(".,!?") for kelime in cumle]
+defa = 0
+kelime = 0
+for i in set(cumle):
+    sayac = cumle.count(i)
+    if sayac > defa:
+        kelime = i
+        defa = sayac
+print(f"En sık geçen kelime {kelime}. {defa} kere geçmiştir.")
+############################################################################
+
+# 69- Metinde geçen tüm rakamları toplayan program.
+metin = "69- Metinde geçen tüm rakamları toplayan program.bu gün tarih 08.07.2025"
+toplam = 0
+for i in set(metin):
+    if i.isdigit():
+        toplam += int(i) * metin.count(i)
+print(f"Metindeki rakamların toplamı {toplam}.")
+############################################################################
+
+# 70- Sadece harf içeren karakterleri listele.
+metin = "Sadece harf içeren karakterleri listele."
+harf = "abcçdefgğhıijklmnoöprsştuüvyz"
+sadece_harf = [i for i in metin.lower() if i in harf]
+print(sadece_harf)
+############################################################################
+
+# 71- Metindeki tüm boşlukları kaldır.
+metin = "Metindeki tüm boşlukları kaldır."
+print(metin.replace(" ",""))
+############################################################################
+
+# 72- Girilen metni satırlara ayır (n karakterde bir).
+metin ="Girilen metni satırlara ayır (n karakterde bir)."
+n = int(input("Kaç karakterde bir ayırmak istersiniz?: "))
+for i in range(0,len(metin)+1,n):
+    print(metin[i:i+n])
+############################################################################
+
+# 73- Rastgele sayı üretip, kullanıcının tahminini al (mini oyun).
+from random import randint
+sayı = randint(0,100)
+while True:
+    tahmin = int(input("tahmininiz: "))
+    if sayı < tahmin:
+        print("Daha küçük bir sayı giriniz!")
+        continue
+    elif sayı > tahmin:
+        print("Daha büyük bir sayı giriniz!")
+        continue
+    else:
+        print("Tebrikler doğru tahmin!")
+############################################################################
+
+# 74- Girilen iki sayının OBEB'ini bul.
+sayi1 = int(input("1. sayı: "))
+sayı2 = int(input("2. sayı: "))
+sayi1_bolen = [i for i in range(1,sayi1+1) if sayi1 % i == 0]
+sayi2_bolen = [i for i in range(1,sayi2+1) if sayi2 % i == 0]
+ortak_bolenler = set(sayi1_bolen) & set(sayi2_bolen)
+ebob = max(ortak_bolenler)
+print(ebob)
+############################################################################
+
+# 75- Girilen iki sayının OKEK'ini bul.
+sayi1 = int(input("1. sayı: "))
+sayi2 = int(input("2. sayı: "))
+buyuk = max(sayi1,sayi2)
+while True:
+    if buyuk % sayi1 == 0 and buyuk % sayi2 == 0:
+        print(f"{sayi1} ve {sayi2} sayılarının OKEK'i: {buyuk}")
+        break
+    buyuk += 1
+
+############################################################################
+
+# 76- Girilen sayının asal çarpanlarını yazdır.
+sayı = int(input("sayı: "))
+bolen = 2
+while sayı > 1:
+    if sayı % bolen == 0:
+        print(bolen, end=" ")
+        sayı = sayı // bolen
+    else:
+        bolen += 1
+    
+############################################################################
+
+# 77- Sayıyı string'e çevirip her basamağını ayrı yazdır.
+sayı = input("Bir sayı giriniz: ")
+for basamak in sayı:
+    print(basamak)
+
+############################################################################
+
+# 78- Metindeki karakterlerin ASCII toplamını hesapla.
+metin = "# 78- Metindeki karakterlerin ASCII toplamını hesapla."
+toplam = 0
+for i in metin:
+    toplam += ord(i)
+print("ASCII değer toplamı: ", toplam)
+############################################################################
+
+# 79- Bir kelimenin tüm alt dizilerini (substring) üret.
+sozcuk = input("Bir kelime giriniz: ")
+for i in range(len(sozcuk)):
+    for j in range(i+1, len(sozcuk)+1):
+        print(sozcuk[i:j])
+
+############################################################################
+
+# 80- Girilen metindeki kelimeleri büyük harfle başlat (title).
+yazı = "Girilen metindeki kelimeleri büyük harfle başlat (title)"
+yazı = yazı.title()
+print(yazı)
+############################################################################
