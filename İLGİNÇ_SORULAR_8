@@ -1,0 +1,89 @@
+
+
+# 81- Sayı listesini string listeye çevir.
+sayi_listesi = [42, -5, 0, 17, 93, 8, 34, 6, -12, 79, 48]
+yeni_liste = str(sayi_listesi)
+####################################################################
+
+# 82- 2 liste al, birleşimini ve kesişimini bul.
+sayi_listesi1 = [42, -5, 0, 17, 93, 8, 34, 6, -12, 79]
+sayi_listesi2 = [48, 19, 67, 100, 3, -45, 88, 23, 1, 77]
+kesisim = set(sayi_listesi1) & set(sayi_listesi2)
+birlesim = sayi_listesi1 + sayi_listesi2
+####################################################################
+
+# 83- Listedeki sayıları ters sırayla yazdır.
+sayi_list = [48, 19, 67, 100, 3, -45, 88, 23, 1, 77]
+print(sayi_list[::-1])
+#print(reverse(sayi_list))
+####################################################################
+
+# 84- Girilen 5 kelimeyi alfabetik sırayla listele.
+print("5 tane kelime gireceksiniz.\nHer girdiğiniz kelimeden sonra \"ENTER\" tuşuna basınız!")
+kelimeler = []
+for i in range(1,6):
+    kelime = input(f"{i}. kelimeyi gir:")
+    kelimeler.append(kelime)
+print(sorted(kelimeler))
+####################################################################
+
+# 85- İçinde "@" ve "." olmayan e-postayı geçersiz say.
+while True:  
+    e_posta = input("e-posta adresini giriniz: ")  
+    if "@" not in e_posta or "." not in e_posta:
+        print("e-poste adresi içinde \". ve @\" kullanmanız gerekiyor.")
+        continue
+    break
+####################################################################
+
+# 86- Girilen saati 24 saat formatına çevir.
+saat_12 = input("Saati (örnek: 02:30 PM) giriniz: ").strip()
+saat = int(saat_12[:2])
+dakika = int(saat_12[3:5])
+ampm = saat_12[-2:].lower()
+if ampm == 'am' and saat == 12:
+    saat = 0
+if ampm == 'pm' and saat != 12:
+    saat += 12
+print(f"24 saat formatında: {saat:02d}:{dakika:02d}")
+####################################################################
+
+# 87- Kullanıcının girdiği metni küçük harf + sayılarla sınırlı tut.
+while True:
+    metin = input("bir metin giriniz: ").lower()
+    for i in metin:
+        if i.isalnum():
+            continue
+        else:
+            print("Sadece harf ve numaralardan olşan bir metin giriniz.")
+            break
+    else:
+        print("Metin kabul edildi:", metin)
+        break
+####################################################################
+
+# 88- Kullanıcıdan ad-soyad al, sadece baş harflerini yazdır.
+k_adı_soy = input("Ad ve Soyad giriniz: ").split()
+print(k_adı_soy[0][0], k_adı_soy[1][0])
+####################################################################
+
+# 89- Girilen metinde en çok tekrar eden harfi bul.
+metin = "Girilen metinde en çok tekrar eden harfi bul."
+cok = 0 
+karakter =""
+for i in set(metin):
+    if i.isalpha():
+        harf = metin.count(i)
+        if harf > cok:
+            cok = harf
+            karakter = i
+print(f"En çok tekrar eden harf: '{karakter}' ({cok} kez)")
+####################################################################
+
+# 90- Girilen metinde büyük harfleri say ve yüzde oranını ver.
+metin = input("bir metin giriniz: ")
+b_harf1 = [i for i in metin if i.isupper()]
+b_harf = len(b_harf1)
+oran = (b_harf / len(metin)) * 100
+print(f"Büyük harflerin oranı: %{oran:.2f}")
+####################################################################
