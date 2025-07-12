@@ -1,0 +1,75 @@
+# 91- Cümledeki kelimelerin uzunluklarını bir listeye yaz.
+cumle = "Cümledeki kelimelerin uzunluklarını bir listeye yaz.".split()
+kelime_uzunluk = [len(i) for i in cumle]
+###########################################################################
+
+# 92- "python" kelimesi kaç kez geçiyor, say.
+metin = "\"python\" kelimesi kaç kez geçiyor, say.".lower()
+say = metin.count("python")
+print(say)
+###########################################################################
+
+# 93- Cümlede geçen toplam karakter sayısını (boşluksuz) yaz.
+cumle = "Cümlede geçen toplam karakter sayısını (boşluksuz) yaz."
+bosluksuz = cumle.replace(" ", "")
+print(len(bosluksuz))
+###########################################################################
+
+# 94- Metindeki tüm rakamları silip kalan metni yazdır.
+metin = "# 94- Metindeki tüm rakamları silip kalan metni yazdır."
+rakamsiz = "".join(i for i in metin if not i.isdigit())
+print(rakamsiz)
+###########################################################################
+
+# 95- Sadece rakamlardan oluşan stringleri listeden ayır.
+liste = ["dsgsd", "123", "lpğ", "486", "lkıol","4","58","kjh89","şö55"]
+rakam = [i for i in liste if i.isdigit()]
+yeni_liste = [i for i in liste if not i.isdigit()]
+###########################################################################
+
+# 96- Kullanıcıdan şifre iste, 8 karakterden kısa ise uyarı ver.
+while True:
+    sifre = input("8 karakterli şifre giriniz: ")
+    if len(sifre) < 8:
+        print("Lütfen 8 karakterli şifre giriniz!")
+        continue
+    break
+###########################################################################
+
+# 97- Kullanıcıdan sayı al, sayının karesi tek mi çift mi kontrol et.
+sayi = int( input("Sayı gir: "))
+karesi = sayi**2
+if karesi % 2 == 0:
+    print(f"{sayi}: {karesi}, çifttir. ")
+else:
+    print(f"{sayi}: {karesi}, tektir. ")
+###########################################################################
+
+# 98- Girilen metni şifrele: her harfi bir sonraki harfe kaydır.
+metin = input("Şifrelenecek metni giriniz: ")
+sifreli = ""
+for harf in metin:
+    if harf.isalpha():
+        if harf == "z":
+            sifreli += "a"
+        elif harf == "Z":
+            sifreli += "A"
+        else:
+            sifreli += chr(ord(harf)+1)
+    else:
+        sifreli += harf
+print(sifreli)       
+###########################################################################
+
+# 99- Kullanıcının girdiği kelimeleri sözlük sırasına göre yazdır.
+kelimeler = [k.strip() for k in input("kelimeler yazınız. aralarına virgül koyarak").split(",")]
+print(sorted(kelimeler))
+###########################################################################
+
+# 100- Kullanıcının adı ve doğum yılı ile kaç yaşında olduğunu yazdır.
+ad = input("Adınız:")
+d_yıl = int(input("doğum yılınız"))
+from datetime import datetime
+yas = datetime.now().year - d_yıl
+print(f"Sayın {ad}, şu an {yas} yaşındasınız!")
+###########################################################################
