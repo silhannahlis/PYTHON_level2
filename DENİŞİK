@@ -1,0 +1,232 @@
+🎯 Konu: List comprehension, sum(), isupper(), islower(), isdigit(), isspace() gibi metotlar ve kısa Python yazımı
+✅ 3 Seviyeye Göre Ayıracağım:
+Başlangıç
+
+Orta
+
+İleri (Pythonic)
+
+🧩 BAŞLANGIÇ SEVİYE (Temel yapılar)
+Soru 1:
+Bir metindeki küçük harf sayısını bulun.
+
+girdi: "Merhaba Dünya"
+
+k_harf = [i for i in girdi if i.islower()]
+print(len(k_harf))
+Çıktı: 10
+
+Soru 2:
+Bir string içindeki rakam karakterlerinin sayısını bulun.
+
+girdi: "abc123de45"
+rakam = [i for i in girdi if i.isdigit()]
+print(len(rakam))
+Çıktı: 5
+
+Soru 3:
+Verilen bir listede kaç tane pozitif sayı olduğunu bulun.
+
+girdi: [4, -2, 0, 5, -1]
+pozitif = [i for i in girdi if i > 0]
+print(len(pozitif))
+Çıktı: 2
+
+Soru 4:
+Verilen cümlede kaç tane boşluk karakteri vardır?
+
+girdi: "Merhaba dünya nasılsın?"
+print(girdi.count(" "))
+Çıktı: 2
+
+🧠 ORTA SEVİYE (List comprehension + sum / len kullanımı)
+Soru 5:
+Bir cümlede geçen büyük harfleri bir liste içinde toplayın.
+
+girdi: "Bugün Hava Çok Güzel"
+buyuk = [i for i in girdi if i.isupper()]
+print(buyuk)
+Çıktı: ['B', 'H', 'Ç', 'G']
+
+Soru 6:
+Verilen string'deki alfabetik olmayan karakterleri liste olarak döndür.
+
+girdi: "abc123!@#"
+alfabe = [i for i in girdi if not i.isalpha()]
+print(alfabe)
+Çıktı: ['1', '2', '3', '!', '@', '#']
+
+Soru 7:
+Bir sayı listesinde çift olanların karesini içeren yeni bir liste üretin.
+
+girdi: [1, 2, 3, 4, 5]
+cift = [i**2 for i in girdi if i % 2 == 0]
+Çıktı: [4, 16]
+
+Soru 8:
+Bir cümledeki kelimelerden 5 harften uzun olanları listeleyin.
+
+girdi: "Python programlama çok eğlenceli"
+uzun = [i for i in girdi.split() if len(i) > 5]
+print(uzun)
+Çıktı: ['programlama', 'eğlenceli']
+
+🧠 İLERİ SEVİYE (Pythonic, generator, filtreleme)
+Soru 9:
+Bir string içindeki tüm ASCII olmayan karakterlerin sayısını bulun.
+
+girdi: "Merhaba, dünya! 👋😊"
+ascıı = [i for i in girdi if ord(i) > 127]
+Çıktı: 2
+
+Soru 10:
+Bir liste içindeki string elemanlardan yalnızca rakamlardan oluşanları bulun.
+
+girdi: ["123", "abc", "456", "78a"]
+number = [i for i in girdi if i.isdigit()]
+print(number)
+Çıktı: ['123', '456']
+
+Soru 11:
+Verilen bir paragrafta kaç kelime sadece büyük harflerden oluşuyor?
+
+girdi: "BUGÜN hava ÇOK güzel AMA sıcak"
+buyuk = [i for i in girdi.split() if i.isupper()]
+print(buyuk)
+Çıktı: ['BUGÜN', 'ÇOK', 'AMA'] → 3
+
+Soru 12:
+Bir string içindeki harflerden oluşan karakterlerin toplam sayısını sum() ve isalpha() kullanarak bulun.
+
+girdi: "Merhaba123!"
+karakter = sum(i for i in girdi if i.isalpha()
+               print(karakter))
+Çıktı: 7
+
+Soru 13:
+Bir liste içinde kaç tane Python değişken ismi geçerli (isidentifier() == True) onu bulun.
+
+Girdi: ["x", "1var", "_sayi", "def", "while", "sayi1"]
+gecerli = [i for i in girdi if i.isidentifier()]
+print(gecerli)
+Çıktı: 4
+
+
+✅ BAŞLANGIÇ SEVİYE – 1. BÖLÜM
+🔹 Soru 1
+Bir metindeki küçük harf sayısını bulun.
+
+girdi: "Merhaba Dünya!"
+kucuk = [i foti in girdi if i.islower()]
+print(len(kucuk))
+Beklenen çıktı: 10
+
+📌 isupper() yerine hangi metodu kullanman gerektiğini hatırlıyor musun?
+
+🔹 Soru 2
+Bir string içindeki rakam karakterlerinin sayısını bulun.
+
+girdi: "abc123de45"
+rakam = [ i for i in girdi if i.isdigit()]
+print(len(rakam))
+Beklenen çıktı: 5
+
+🔹 Soru 3
+Verilen bir listede kaç tane pozitif sayı olduğunu bulun.
+
+girdi: [4, -2, 0, 5, -1]
+pozitif = [i for i in girdi if i % 2 == 0]
+print(len(pozitif))
+Beklenen çıktı: 2
+
+🔹 Soru 4
+Verilen cümlede kaç tane boşluk karakteri vardır?
+
+girdi: "Merhaba dünya nasılsın ?"
+print(girdi.count(" "))
+Beklenen çıktı: 3
+
+
+🚀 İLERİ SEVİYE SORULAR
+🔹 Soru 11
+Verilen bir paragrafta kaç kelime sadece büyük harflerden oluşuyor?
+
+girdi: "BUGÜN hava ÇOK güzel AMA sıcak"
+buyuk = [i for i in girdi.split() if i.isupper()]
+print(buyuk)
+Beklenen çıktı: 3 (kelimeler: 'BUGÜN', 'ÇOK', 'AMA')
+
+🔹 Soru 12
+Bir string içindeki harflerden oluşan karakterlerin toplam sayısını sum() ve isalpha() kullanarak bulun.
+
+girdi: "Merhaba123!"
+karakter = sum(i for i in girdi if i.isalpha())
+print(karakter)
+Beklenen çıktı: 7
+
+🔹 Soru 13
+Bir liste içinde kaç tane Python değişken ismi geçerli (isidentifier() == True) onu bulun.
+
+girdi: ["x", "1var", "_sayi", "def", "while", "sayi1"]
+gecerli = [i for i in girdi if i.isidentifier()]
+print(len(gecerli))
+Beklenen çıktı: 4
+
+🔹 Soru 14
+Bir metindeki kelimelerden başında büyük harf olanları bulun.
+
+girdi: "Merhaba Dünya python Programlama"
+buyuk = [i for i in girdi.split() if i[0].isupper()]
+Beklenen çıktı: ['Merhaba', 'Dünya', 'Programlama']
+
+🔹 Soru 15
+Verilen bir metindeki boşluk olmayan karakterlerin sayısını bulun.
+
+Girdi: "Merhaba Dünya"
+bosluksuz = [i for i in girdi if i != ""]
+print(len(bosluksuz))
+Beklenen çıktı: 11
+
+🔹 Soru 16
+Bir string'deki sadece yazdırılabilir karakterlerin sayısını bulun (isprintable()).
+
+girdiirdi: "Hello\nWorld!"
+yazdır = [ i for i in girdi if i.isprintable()]
+print(len(yazdır))
+Beklenen çıktı: 11
+(Not: \n newline karakteri yazdırılabilir değil)
+
+🔹 Soru 17
+Bir string'deki tüm kelimelerin baş harflerini büyütün (Python’da hazır fonksiyonla değil, kendin yap).
+
+girdi: "python programlama dili"
+buyuk = [i.capitalize() for i in girdi.split()]
+print(" ".join(buyuk))
+Beklenen çıktı: "Python Programlama Dili"
+
+🔹 Soru 18
+Bir string içinde kaç tane ondalık sayı (decimal digit) olduğunu bulun (isdecimal()).
+
+girdi: "12345, 678"
+sayi = [i for i in girdi if i.isdecimal()]
+print(len(sayi))
+Beklenen çıktı: 8 (virgül sayılmaz)
+
+🔹 Soru 19
+Bir string'deki tüm kelimelerin hepsi küçük harf mi? kontrol edin (istitle() ile değil, islower() ile).
+
+girdi: "merhaba dünya"
+print(girdi.islower())
+Beklenen çıktı: True
+
+🔹 Soru 20
+Bir string içindeki tüm karakterlerin ASCII olup olmadığını kontrol edin.
+
+girdi1: "Merhaba Dünya"
+ascıı_mi = all(ord(i) < 128 for i in girdi1)
+Beklenen çıktı: True
+
+girdi2: "Merhaba Dünya 👋"
+ascıı_mi = all(ord(i) < 128 for i in girdi2)
+Beklenen çıktı: False
+
