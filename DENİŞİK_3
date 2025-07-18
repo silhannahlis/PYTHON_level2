@@ -1,0 +1,28 @@
+sayi = [1,2,3,5,7,9,12,19,21]
+###soru1: hangi sayılar 3'ün katı
+ucKat = [i for i in sayi if i % 3 == 0]
+
+###soru2:sayıların toplamı
+topSayi = sum(i for i in sayi)
+
+###soru3:tek sayıların karesi
+tek_karesi = [i**2 for i in sayi if i % 2 == 1]
+
+sehirler = ["kocaeli","istanbul", "ankara", "izmir", "rize"]
+
+###soru4: en fazla 5 karakterli olanlar
+bes_karakter = [i for i in sehirler if len(i) <= 5]
+
+urunler = [
+    {"name": "samsung S5", "price": "3000"},
+    {"name": "samsung S6", "price": "4000"},
+    {"name": "samsung S7", "price": "5000"},
+    {"name": "samsung S8", "price": "6000"},
+    {"name": "samsung S9", "price": "7000"},
+]
+
+###soru5:urunlerin fiyatları toplamı
+fiyatTop = sum(int(i["price"]) for i in urunler)
+
+###soru6: fiyatı en fazla 5000 olanlar
+besbin_alti = [i["name"] for i in urunler if int(i["price"]) <= 5000]
