@@ -1,0 +1,72 @@
+#Adı, yaşı, eğitim durumunu kullanıcıdan alıp. ehliyet alıp almayacağını 
+#kontrol edin. ehliyet şartı yaş 18'den büyük, eğitim lise ve üzeri.
+isim = input("Adınız: ")
+yas = int(input("Yaşınız: "))
+egitim = input("Eğitim durumu, lise-üniversite: ").split()
+if yas < 18:
+    print("Ehliyet için 18 yaşını doldurmanız gerekiyor")
+#elif yas >= 18:
+else:
+    if egitim == "lise" or egitim == "üniversite":
+        print("istediğiniz zaman ehliyet alabilirsiniz.")
+    else:
+        print("Ehliyet için ena az Lise muzunu olmanız gerekmektedir.")
+
+
+#2 yazılı ve bie sözli notu kullanıcıdan alınıp ortalamasını hesaplayıp
+#not bilgisini yazınız.      
+yazılı1 = int(input("Yazılı 1 notu: "))   
+yazılı2 = int(input("Yazılı 2 notu: "))    
+sozlu = int(input("Sözlü notu: "))  
+ortalama = (yazılı1+yazılı2+sozlu)/3
+#I.YOL.
+match ortalama:
+    case ort if 0 <= ort <= 24:
+        print(f"{ortalama} ortalama notu: 0 ")
+    case ort if 25 <= ort <= 44:
+        print(f"{ortalama} ortalama notu: 1 ")
+    case ort if 45 <= ort <= 54:
+        print(f"{ortalama} ortalama notu: 2 ")
+    case ort if 55 <= ort <= 69:
+        print(f"{ortalama} ortalama notu: 3 ")
+    case ort if 70 <= ort <= 84:
+        print(f"{ortalama} ortalama notu: 4 ")
+    case ort if 85 <= ort <= 100:
+        print(f"{ortalama} ortalama notu: 5 ")
+#II.YOL:
+if 0 <= ortalama <= 24: 
+    print(f"{ortalama} ortalama notu: 0 ")
+elif 25 <= ortalama <= 44:
+    print(f"{ortalama} ortalama notu: 1 ")
+elif 45 <= ortalama <= 54:
+    print(f"{ortalama} ortalama notu: 2 ")
+elif 55 <= ortalama <= 69:
+    print(f"{ortalama} ortalama notu: 3 ")
+elif 70 <= ortalama <= 84:
+    print(f"{ortalama} ortalama notu: 4 ")
+elif 85 <= ortalama <= 100:
+    print(f"{ortalama} ortalama notu: 5 ")
+else:
+    print("Girdiğiniz sayıları kontrol ediniz.")
+    
+# Trafiğe çıkış tarihi verilen bir aracın servis zamanını 
+#1.bakım-1.yıl, 2.bakım-2.yıl, 3.bakım-3.yıl   
+from datetime import datetime as dt
+tarih = input("Aracınızın trafiğe çıkış tarihi: yyyy.aa.gg :  ")
+tarih = tarih.split('.')
+trafigeCikis = dt.datetime(int(tarih[0]), int(tarih[1]), int(tarih[2]))
+simdi = dt.now() 
+fark = simdi - trafigeCikis
+days = fark.days
+if days <= 365:
+    print(f"1.servis aralığı")
+elif days <= 730:
+    print(f"2.servis aralığı")
+elif days <= 1095:
+    print(f"3.servis aralığı")
+else:
+    print("hatalı süre")
+
+  
+    
+        
